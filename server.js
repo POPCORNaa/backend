@@ -48,7 +48,38 @@ app.get('/movies/:id', (req, res) => {
     }
 });
 
+// PUT /movies/:id: Update a movie by its id
+app.put('/movies/:id', (req, res) => {
+    const movieId = parseInt(req.params.id);
+    const movieIndex = movies.findIndex(m => m.id === movieId);
+    if (movieIndex !== -1) {
+        const updatedMovie = {
+            id: movieId,
+            title: req.body.title,
+            director: req.body.director,
+            year: req.body.year
+        };
+        movies[movieIndex] = updatedMovie;
+        res.json(updatedMovie);
+    } else {
+        res.status(404).json({ message: "Movie not found" });
+    }
+});
+
+// DELETE /movies/:id: Delete a movie by its id
+app.delete('/movies/:id', (req, res) => {
+    const movieId = parseInt(req.params.id);
+    const movieIndex = movies.findIndex(m => m.id === movieId);
+    if (movieIndex !== -1) {
+        movies.splice(movieIndex, 1); // 删除电影
+        res.status(204).send(); // 返回204 No Content
+    } else {
+        res.status(404).json({ message: "Movie not found" });
+    }
+});
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+
