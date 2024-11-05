@@ -1,0 +1,29 @@
+### Get All Movies
+GET http://localhost:3000/movies
+
+### Get a Movie by ID
+GET http://localhost:3000/movies/1
+
+### Add a New Movie
+POST http://localhost:3000/movies
+Content-Type: application/json
+
+{
+  "title": "Interstellar",
+  "director": "Christopher Nolan",
+  "year": 2014
+}
+
+### Update an Existing Movie
+PUT http://localhost:3000/movies/1
+Content-Type: application/json
+
+{
+  "title": "The Godfather",
+  "director": "Francis Ford Coppola",
+  "year": 1972
+}
+
+### Delete a Movie
+DELETE http://localhost:3000/movies/1
+
