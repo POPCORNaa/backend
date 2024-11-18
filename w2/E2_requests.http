@@ -1,0 +1,77 @@
+### Test POST without title
+POST http://localhost:3000/movies
+Content-Type: application/json
+
+{
+    "director": "Chris Columbus",
+    "year": 2001
+}
+
+###
+
+### Test POST without director
+POST http://localhost:3000/movies
+Content-Type: application/json
+
+{
+    "title": "Harry Potter and the Sorcerer's Stone",
+    "year": 2001
+}
+
+###
+
+### Test POST without year
+POST http://localhost:3000/movies
+Content-Type: application/json
+
+{
+    "title": "Harry Potter and the Sorcerer's Stone",
+    "director": "Chris Columbus"
+}
+
+### Test PUT with year before 1888
+PUT http://localhost:3000/movies/1
+Content-Type: application/json
+
+{
+    "title": "Some Movie",
+    "director": "Some Director",
+    "year": 1800
+}
+
+###
+
+### Test PUT with year in the future
+PUT http://localhost:3000/movies/1
+Content-Type: application/json
+
+{
+    "title": "Future Movie",
+    "director": "Future Director",
+    "year": 3000
+}
+### Test GET with a non-existent ID
+GET http://localhost:3000/movies/9999
+Content-Type: application/json
+
+###
+
+### Test PUT with a non-existent ID
+PUT http://localhost:3000/movies/9999
+Content-Type: application/json
+
+{
+    "title": "Nonexistent Movie",
+    "director": "No Director",
+    "year": 2022
+}
+
+###
+
+### Test DELETE with a non-existent ID
+DELETE http://localhost:3000/movies/9999
+Content-Type: application/json
+
+### Test undefined route
+GET http://localhost:3000/unknown
+Content-Type: application/json
