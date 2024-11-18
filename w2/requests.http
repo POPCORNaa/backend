@@ -1,0 +1,39 @@
+# GET all movies
+GET http://localhost:3000/movies
+Content-Type: application/json
+
+###
+
+# GET a specific movie by ID
+GET http://localhost:3000/movies/1
+Content-Type: application/json
+
+###
+
+# POST a new movie
+POST http://localhost:3000/movies
+Content-Type: application/json
+
+{
+    "title": "Interstellar",
+    "director": "Christopher Nolan",
+    "year": 2014
+}
+
+###
+
+# PUT (update) a movie by ID
+PUT http://localhost:3000/movies/1
+Content-Type: application/json
+
+{
+    "title": "Inception",
+    "director": "Christopher Nolan",
+    "year": 2010
+}
+
+###
+
+# DELETE a movie by ID
+DELETE http://localhost:3000/movies/1
+Content-Type: application/json
