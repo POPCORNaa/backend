@@ -1,0 +1,12 @@
+# Basic Filters
+GET http://localhost:3000/movies?year=2010
+GET http://localhost:3000/movies?director=Christopher%20Nolan
+GET http://localhost:3000/movies?title=Inter
+
+# Combined Filters
+GET http://localhost:3000/movies?year=2010&director=Christopher%20Nolan
+GET http://localhost:3000/movies?director=Nolan&genre=Sci-Fi
+GET http://localhost:3000/movies?minRating=8.5&genre=Sci-Fi
+
+# Multiple Criteria
+GET http://localhost:3000/movies?director=Nolan&year=2010&minRating=8.5
