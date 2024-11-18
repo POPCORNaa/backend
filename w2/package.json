@@ -1,0 +1,17 @@
+{
+  "name": "w2movie-api",
+  "version": "1.0.0",
+  "main": "w2E1.js",
+  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node w2E1.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
