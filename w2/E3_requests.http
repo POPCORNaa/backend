@@ -1,12 +1,29 @@
-# Basic Filters
+# Test 1: GET all movies
+GET http://localhost:3000/movies
+
+# Test 2: GET movies by year
 GET http://localhost:3000/movies?year=2010
+
+# Test 3: GET movies by title
+GET http://localhost:3000/movies?title=inception
+
+# Test 4: GET movies by director
 GET http://localhost:3000/movies?director=Christopher%20Nolan
-GET http://localhost:3000/movies?title=Inter
 
-# Combined Filters
+# Test 5: GET movies by multiple query parameters (year and director)
 GET http://localhost:3000/movies?year=2010&director=Christopher%20Nolan
-GET http://localhost:3000/movies?director=Nolan&genre=Sci-Fi
-GET http://localhost:3000/movies?minRating=8.5&genre=Sci-Fi
 
-# Multiple Criteria
-GET http://localhost:3000/movies?director=Nolan&year=2010&minRating=8.5
+# Test 6: GET movies by multiple query parameters (title and year)
+GET http://localhost:3000/movies?title=inception&year=2010
+
+# Test 7: GET movies with no matching filters
+GET http://localhost:3000/movies?year=2025&director=Nonexistent%20Director
+
+# Test 8: GET movies with invalid year
+GET http://localhost:3000/movies?year=1880
+
+# Test 9: GET movies with invalid title format
+GET http://localhost:3000/movies?title=
+
+# Test 10: Accessing undefined route
+GET http://localhost:3000/unknown
