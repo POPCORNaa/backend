@@ -1,0 +1,48 @@
+# Test GET /movies (List all movies)
+GET http://localhost:3000/movies HTTP/1.1
+Accept: application/json
+
+### Test GET /movies with year filter
+GET http://localhost:3000/movies?year=2010 HTTP/1.1
+Accept: application/json
+
+### Test GET /movies with director filter
+GET http://localhost:3000/movies?director=Christopher%20Nolan HTTP/1.1
+Accept: application/json
+
+### Test GET /movies with combined year and director filters
+GET http://localhost:3000/movies?year=2010&director=Christopher%20Nolan HTTP/1.1
+Accept: application/json
+
+### Test POST /movies (Create a new movie)
+POST http://localhost:3000/movies HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "title": "Dunkirk",
+  "director": "Christopher Nolan",
+  "year": 2017,
+  "genre": "War",
+  "rating": 8.8
+}
+
+### Test PUT /movies/:id (Update an existing movie)
+PUT http://localhost:3000/movies/1 HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "title": "Inception",
+  "director": "Christopher Nolan",
+  "year": 2010,
+  "genre": "Sci-Fi",
+  "rating": 9.0
+}
+
+### Test DELETE /movies/:id (Delete a movie)
+DELETE http://localhost:3000/movies/5 HTTP/1.1
+Accept: application/json
+
+###
+get http://localhost:3000/movies

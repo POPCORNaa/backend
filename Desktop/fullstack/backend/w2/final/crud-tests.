@@ -1,0 +1,77 @@
+{
+    "tests": [
+      {
+        "method": "GET",
+        "url": "http://localhost:3000/movies",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "description": "Test GET /movies - Get all movies"
+      },
+      {
+        "method": "GET",
+        "url": "http://localhost:3000/movies?year=2010",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "description": "Test GET /movies with year filter"
+      },
+      {
+        "method": "GET",
+        "url": "http://localhost:3000/movies?director=Christopher%20Nolan",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "description": "Test GET /movies with director filter"
+      },
+      {
+        "method": "GET",
+        "url": "http://localhost:3000/movies?year=2010&director=Christopher%20Nolan",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "description": "Test GET /movies with combined year and director filters"
+      },
+      {
+        "method": "POST",
+        "url": "http://localhost:3000/movies",
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "title": "Dunkirk",
+          "director": "Christopher Nolan",
+          "year": 2017,
+          "genre": "War",
+          "rating": 8.8
+        },
+        "description": "Test POST /movies - Create a new movie"
+      },
+      {
+        "method": "PUT",
+        "url": "http://localhost:3000/movies/1",
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "title": "Inception",
+          "director": "Christopher Nolan",
+          "year": 2010,
+          "genre": "Sci-Fi",
+          "rating": 9.0
+        },
+        "description": "Test PUT /movies/:id - Update an existing movie"
+      },
+      {
+        "method": "DELETE",
+        "url": "http://localhost:3000/movies/5",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "description": "Test DELETE /movies/:id - Delete a movie"
+      }
+    ]
+  }
+  
