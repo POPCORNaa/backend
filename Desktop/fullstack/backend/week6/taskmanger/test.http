@@ -1,0 +1,101 @@
+### User Registration
+POST http://localhost:4000/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "password123",
+  "role": "user"
+}
+
+### Admin Registration
+POST http://localhost:4000/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "adminuser",
+  "password": "adminpassword",
+  "role": "admin"
+}
+
+### User Login
+POST http://localhost:4000/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "password123"
+}
+
+### Admin Login
+POST http://localhost:4000/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "adminuser",
+  "password": "adminpassword"
+}
+
+### Invalid Login
+POST http://localhost:4000/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "wrongpassword"
+}
+
+### Get All Tasks (Authenticated Users)
+GET http://localhost:4000/api/items
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NjM3ZDFmMzA2NjM1Y2JiMDQyOGQwYSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzM0NTczNTcxLCJleHAiOjE3MzQ1NzcxNzF9.Kim3EwoV
+
+
+### Create a Task (Admin Only)
+POST http://localhost:4000/api/items
+Authorization: Bearer <ADMIN_TOKEN>
+Content-Type: application/json
+
+{
+  "title": "New Task",
+  "description": "Test task created by admin",
+  "dueDate": "2024-12-31",
+  "priority": "high",
+  "completed": false
+}
+
+### Get Task by ID
+GET http://localhost:4000/api/items/<TASK_ID>
+Authorization: Bearer <eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NjM3ZDFmMzA2NjM1Y2JiMDQyOGQwYSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzM0NTczNDg0LCJleHAiOjE3MzQ1NzcwODR9.QEUYdbAbF7vhhirwBgxyroz3fUr0aNXi0YlkZev1F4Y>
+
+### Update a Task (Admin Only)
+PUT http://localhost:4000/api/items/<TASK_ID>
+Authorization: Bearer <ADMIN_TOKEN>
+Content-Type: application/json
+
+{
+  "title": "Updated Task Title",
+  "description": "Updated task description",
+  "dueDate": "2024-12-25",
+  "priority": "medium",
+  "completed": true
+}
+
+### Delete a Task (Admin Only)
+DELETE http://localhost:4000/api/items/<TASK_ID>
+Authorization: Bearer <ADMIN_TOKEN>
+
+### Register with Missing Fields
+POST http://localhost:4000/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "userwithoutpassword"
+}
+
+### Access with Invalid Token
+GET http://localhost:4000/api/items
+Authorization: Bearer invalid.token.here
+
+### Access Protected Route Without Token
+GET http://localhost:4000/api/items
+
