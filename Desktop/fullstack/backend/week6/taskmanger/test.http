@@ -52,7 +52,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NjM3ZDFmM
 
 ### Create a Task (Admin Only)
 POST http://localhost:4000/api/items
-Authorization: Bearer <ADMIN_TOKEN>
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NjM3ZDQwMzA2NjM1Y2JiMDQyOGQwYyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczNDU3NDc2NiwiZXhwIjoxNzM0NTc4MzY2fQ.qsXusWtTaY4ZUhmcE2dC66H-YbwrTWbnk1f3_Uu0tuk
 Content-Type: application/json
 
 {
@@ -64,25 +64,24 @@ Content-Type: application/json
 }
 
 ### Get Task by ID
-GET http://localhost:4000/api/items/<TASK_ID>
+GET http://localhost:4000/api/items/67636fd6a64f26e1fd9f10ba
 Authorization: Bearer <eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NjM3ZDFmMzA2NjM1Y2JiMDQyOGQwYSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzM0NTczNDg0LCJleHAiOjE3MzQ1NzcwODR9.QEUYdbAbF7vhhirwBgxyroz3fUr0aNXi0YlkZev1F4Y>
 
 ### Update a Task (Admin Only)
-PUT http://localhost:4000/api/items/<TASK_ID>
-Authorization: Bearer <ADMIN_TOKEN>
+PUT http://localhost:4000/api/items/67636fd6a64f26e1fd9f10ba
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NjM3ZDQwMzA2NjM1Y2JiMDQyOGQwYyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczNDU3NDc2NiwiZXhwIjoxNzM0NTc4MzY2fQ.qsXusWtTaY4ZUhmcE2dC66H-YbwrTWbnk1f3_Uu0tuk
 Content-Type: application/json
 
 {
-  "title": "Updated Task Title",
-  "description": "Updated task description",
-  "dueDate": "2024-12-25",
+  "title": "Reading",
+  "time": "one hour",
   "priority": "medium",
-  "completed": true
+  
 }
 
 ### Delete a Task (Admin Only)
-DELETE http://localhost:4000/api/items/<TASK_ID>
-Authorization: Bearer <ADMIN_TOKEN>
+DELETE http://localhost:4000/api/items/67636fd6a64f26e1fd9f10ba
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NjM3ZDQwMzA2NjM1Y2JiMDQyOGQwYyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczNDU3NDc2NiwiZXhwIjoxNzM0NTc4MzY2fQ.qsXusWtTaY4ZUhmcE2dC66H-YbwrTWbnk1f3_Uu0tuk
 
 ### Register with Missing Fields
 POST http://localhost:4000/api/auth/register
@@ -98,4 +97,3 @@ Authorization: Bearer invalid.token.here
 
 ### Access Protected Route Without Token
 GET http://localhost:4000/api/items
-
